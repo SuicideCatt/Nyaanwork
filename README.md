@@ -76,24 +76,26 @@ and Input module provide HLI.
 ```cpp
 import Nyaanwork.Core.Types;
 import Nyaanwork.WindowSystem;
+import Nyaanwork.Input.HLI;
 
 int main()
 {
 	using namespace Nyaanwork;
 
 	WindowSystem::Instance instance;
-	auto window_ptr = instance->create_window({
+	auto window = instance->create_window({
 		.title = "Hello Nyaanwork!",
 		.bounds = {
 			.position = {300, 500},
 			.resolution = {.value = {400, 400}}
 		},
 	});
-	WindowSystem::Window& window = *window_ptr;
 
     Input::HLI hli;
-	while (window->should_close())
+	while (!window->should_close())
 	{
+		using namespace WindowSystem::Codes;
+		
 		hli.update(window);
 
 		if (hli.state(Key::escape).release)
