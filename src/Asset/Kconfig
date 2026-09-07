@@ -1,0 +1,16 @@
+config NYAANWORK_ASSET
+	bool "Asset"
+	default y
+
+menu "Asset"
+	depends on NYAANWORK_ASSET
+
+	config NYAANWORK_ASSET_IMAGE
+		bool "Enable Pixels, Colors, Image, ImageView"
+		default y
+
+	config NYAANWORK_ASSET_TILE
+		bool "Enable TileView, Tile, TileSet"
+		default y
+		depends on NYAANWORK_ASSET_IMAGE
+endmenu

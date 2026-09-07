@@ -1,0 +1,5 @@
+.cache
+build
+*.out
+gede*.ini
+.config*

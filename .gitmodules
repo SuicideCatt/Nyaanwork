@@ -1,0 +1,6 @@
+[submodule "third_party/module/cmake-kconfig"]
+	path = third_party/module/cmake-kconfig
+	url = https://github.com/SuicideCatt/cmake-kconfig
+[submodule "third_party/module/glm"]
+	path = third_party/module/glm
+	url = https://github.com/g-truc/glm

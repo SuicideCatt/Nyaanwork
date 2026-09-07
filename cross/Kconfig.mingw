@@ -1,0 +1,15 @@
+config NYAANWORK_CROSS_COMPILE_FROM_LINUX
+	bool "Enable"
+	default n
+
+config NYAANWORK_CROSS_COMPILE_FROM_LINUX_LIBRARIES
+	string "Path to libraries (.dll)"
+	default ""
+
+config NYAANWORK_CROSS_COMPILE_FROM_LINUX_WINE
+	string "Path to wine (for run targets)"
+	default "wine"
+
+config NYAANWORK_CROSS_COMPILE_FROM_LINUX_WINE_PREFIX
+	string "Path to wine prefix"
+	default ""

@@ -1,0 +1,7 @@
+config NYAANWORK_Module
+	bool "Module"
+	default y
+
+menu "Module"
+	depends on NYAANWORK_Module
+endmenu

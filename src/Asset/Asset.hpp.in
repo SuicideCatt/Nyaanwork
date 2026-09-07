@@ -1,0 +1,3 @@
+#cmakedefine NYAANWORK_ASSET
+#cmakedefine NYAANWORK_ASSET_IMAGE
+#cmakedefine NYAANWORK_ASSET_TILE

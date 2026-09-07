@@ -1,0 +1,29 @@
+config NYAANWORK_WINDOW_SYSTEM
+	bool "WindowSystem"
+	default y
+
+menu "WindowSystem"
+	depends on NYAANWORK_WINDOW_SYSTEM
+
+	config NYAANWORK_WINDOW_SYSTEM_OPENGL
+		bool "OpenGL support"
+		default y
+	config NYAANWORK_WINDOW_SYSTEM_VULKAN
+		bool "Vulkan support"
+		default y
+
+	menu "Backends"
+		config NYAANWORK_WINDOW_SYSTEM_BACKENDS_LINUX
+			bool "Linux backends support"
+			default y
+
+		config NYAANWORK_WINDOW_SYSTEM_BACKENDS_LINUX_XCB
+			bool "XCB(X11)"
+			default y
+			depends on NYAANWORK_WINDOW_SYSTEM_BACKENDS_LINUX
+
+		config NYAANWORK_WINDOW_SYSTEM_BACKENDS_WINDOWS
+			bool "MS Windows"
+			default y
+	endmenu
+endmenu

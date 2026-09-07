@@ -1,0 +1,22 @@
+menu "Tests"
+	depends on NYAANWORK_TESTS
+
+	config NYAANWORK_TESTS_CORE
+		bool "Core"
+		default y
+
+	config NYAANWORK_TESTS_ASSET
+		bool "Asset"
+		default y
+		depends on NYAANWORK_ASSET
+
+	config NYAANWORK_TESTS_WINDOW_SYSTEM
+		bool "WindowSystem"
+		default y
+		depends on NYAANWORK_WINDOW_SYSTEM
+
+	config NYAANWORK_TESTS_INPUT
+		bool "Input"
+		default y
+		depends on NYAANWORK_INPUT
+endmenu

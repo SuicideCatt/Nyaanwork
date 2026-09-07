@@ -1,0 +1,11 @@
+menu "Modules"
+	rsource "src/Asset/Kconfig"
+	rsource "src/WindowSystem/Kconfig"
+	rsource "src/Input/Kconfig"
+endmenu
+
+config NYAANWORK_TESTS
+	bool "Enable tests"
+	default n
+
+rsource "tests/Kconfig"

@@ -1,0 +1,18 @@
+config NYAANWORK_INPUT
+	bool "Input"
+	default y
+	depends on NYAANWORK_WINDOW_SYSTEM
+
+menu "Input"
+	depends on NYAANWORK_INPUT
+
+	config NYAANWORK_INPUT_COMBINATION_SIZE
+		int "Key and buttons combination size"
+		range 2 6
+		default 4
+
+	config NYAANWORK_INPUT_COMBINATIONS_COUNT
+		int "Key and buttons combinations count"
+		range 1 4
+		default 2
+endmenu

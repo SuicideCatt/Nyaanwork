@@ -1,0 +1,9 @@
+# set(STANDELONE_MODULES FALSE PARENT_SCOPE)
+
+set(NYAANWORK_Module FALSE CACHE BOOL "Enable Module module" FORCE)
+
+if (CONFIG_NYAANWORK_Module)
+	set(NYAANWORK_Module TRUE CACHE BOOL "Enable Module module" FORCE)
+endif()
+
+# set(MODULES "" PARENT_SCOPE)
