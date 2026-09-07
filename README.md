@@ -48,7 +48,7 @@ add_subdirectory(path/to/Nyaanwork) # init Nyaanwork and cmake-kconfig
 #kconfig_add_menu(name Kconfig)
 
 add_executable(${PROJECT_NAME} main.cpp) # add you executable
-target_link_library(${PROJECT_NAME} PUBLIC Nyaanwork) # link Nyaanwork
+target_link_libraries(${PROJECT_NAME} PUBLIC Nyaanwork) # link Nyaanwork
 
 # ninja run-main: rebuild(if needed) and run executable target
 nyaanwork_run_target(main ${PROJECT_NAME} [args...])
