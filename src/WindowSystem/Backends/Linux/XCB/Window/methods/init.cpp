@@ -103,6 +103,7 @@ export namespace Nyaanwork::WindowSystem::Backends::Linux::XCB
 		resizable(info.resizable);
 
 		W::map(c, m_xwindow);
+		::XCB::flush(c);
 
 		borderless(info.borderless);
 		fullscreen(info.fullscreen);
