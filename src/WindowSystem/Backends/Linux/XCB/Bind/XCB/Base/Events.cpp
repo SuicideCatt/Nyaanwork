@@ -92,11 +92,11 @@ export namespace XCB::Events
 
 	using Generic = Helper::GetUPtr<xcb_generic_event_t>;
 	template<typename R, typename P>
-	Generic wait(Connection* c, bool pool, std::chrono::duration<R, P> wait_time)
+	Generic wait(Connection* c, bool poll, std::chrono::duration<R, P> wait_time)
 	{
 		xcb_generic_event_t* ev = nullptr;
 
-		if (pool) NYAAN_UNLIK
+		if (poll) NYAAN_UNLIK
 		{
 			std::this_thread::sleep_for(wait_time);
 			ev = xcb_poll_for_event(c);
