@@ -74,9 +74,8 @@ WindowSystem module provide Linux (X11) and Windows backeds,
 and Input module provide HLI.
 
 ```cpp
-import Nyaanwork.Core.Types;
-import Nyaanwork.WindowSystem;
 import Nyaanwork.Input.HLI;
+import Nyaanwork.WindowSystem;
 
 int main()
 {
@@ -89,13 +88,14 @@ int main()
 			.position = {300, 500},
 			.resolution = {.value = {400, 400}}
 		},
+		.resizable = false,
 	});
 
     Input::HLI hli;
 	while (!window->should_close())
 	{
-		using namespace WindowSystem::Codes;
-		
+		using namespace Input::Codes; // or WindowSystem::Codes
+
 		hli.update(window);
 
 		if (hli.state(Key::escape).release)
