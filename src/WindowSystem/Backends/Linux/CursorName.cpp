@@ -11,7 +11,7 @@ export namespace Nyaanwork::WindowSystem::Backends::Linux
 
 		#define CASE_TEXT(name, text) case name: return text
 		#define CASE(name) CASE_TEXT(name, #name)
-		#define CASE_RESIZE(name) CASE_TEXT(name##_resize, #name "-resize")
+		#define CASE_RESIZE(name, text) CASE_TEXT(name##_resize, text "-resize")
 		#define CASE_ZOOM(name) CASE_TEXT(zoom_##name, "zoom-" #name)
 		switch (cursor)
 		{
@@ -30,20 +30,20 @@ export namespace Nyaanwork::WindowSystem::Backends::Linux
 		CASE_TEXT(context_menu, "context-menu");
 		CASE(help);
 		CASE(cell);
-		CASE_RESIZE(trdl);
-		CASE_RESIZE(tldr);
-		CASE_RESIZE(t);
-		CASE_RESIZE(d);
-		CASE_RESIZE(td);
-		CASE_RESIZE(row);
-		CASE_RESIZE(l);
-		CASE_RESIZE(r);
-		CASE_RESIZE(lr);
-		CASE_RESIZE(col);
-		CASE_RESIZE(tl);
-		CASE_RESIZE(tr);
-		CASE_RESIZE(dl);
-		CASE_RESIZE(dr);
+		CASE_RESIZE(trdl, "nesw");
+		CASE_RESIZE(tldr, "nwse");
+		CASE_RESIZE(t, "n");
+		CASE_RESIZE(d, "s");
+		CASE_RESIZE(td, "ns");
+		CASE_RESIZE(row, "row");
+		CASE_RESIZE(l, "w");
+		CASE_RESIZE(r, "e");
+		CASE_RESIZE(lr, "ew");
+		CASE_RESIZE(col, "col");
+		CASE_RESIZE(tl, "nw");
+		CASE_RESIZE(tr, "ne");
+		CASE_RESIZE(dl, "sw");
+		CASE_RESIZE(dr, "se");
 		CASE(move);
 		CASE_TEXT(all_scroll, "all-scroll");
 		CASE_ZOOM(in);
