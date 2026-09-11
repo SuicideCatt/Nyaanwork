@@ -706,7 +706,7 @@ export namespace Nyaanwork::WindowSystem::Backends::Linux::XCB
 					if (mask[0] & 0b0100) // wheel_x
 						s(wheel, 0) = I::f64_from_fp3232(raw[i++]);
 					if (mask[0] & 0b1000) // wheel_y
-						s(wheel, 1) = I::f64_from_fp3232(raw[i++]);
+						s(wheel, 1) = -I::f64_from_fp3232(raw[i++]);
 
 					if (!xwayland() && wheel)
 						*wheel /= 120_f64;
