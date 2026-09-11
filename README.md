@@ -29,7 +29,10 @@ You'll want to create base **C++**/**CMake** project and initialize git.
 
 2. Add Nyaanwork as git submodule:
 ```bash
-git submodule add $URL path/to/third-party/modules/Nyaanwork
+git submodule add https://codeberg.org/SuicideCatt/Nyaanwork path/to/third-party/modules/Nyaanwork
+# or
+git submodule add https://github.com/SuicideCatt/Nyaanwork path/to/third-party/modules/Nyaanwork
+
 git submodule update --init --recursive --depth=1
 ```
 
