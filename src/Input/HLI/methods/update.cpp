@@ -9,6 +9,7 @@ import :decl;
 
 import Nyaanwork.Core.Math;
 import Nyaanwork.Core.Types;
+import Nyaanwork.Core.Utils.PtrContainer;
 
 namespace Nyaanwork::Input
 {
@@ -39,20 +40,28 @@ namespace Nyaanwork::Input
 
 export namespace Nyaanwork::Input
 {
-	void HLI::update(Ptr<WindowSystem::Window> window)
+	void HLI::update(Ptr<WindowSystem::Window> window,
+					 PtrContainer<WindowSystem::InputState> state)
 	{
-		update_window_input(window);
+		update_window_input(window, state);
 		update_action_axis();
 	}
 
-	void HLI::update_window_input(Ptr<WindowSystem::Window> window)
+	void HLI::update_window_input(Ptr<WindowSystem::Window> window,
+								  PtrContainer<WindowSystem::InputState> state)
 	{
 		if (!window) NYAAN_UNLIK
 			return;
 
 		bool keyboard_focused = window->keyboard_focused();
 		bool mouse_focused = window->mouse_focused();
-		m_input_state.window = window->input_state();
+		m_input_state.window = [&state, &window]()
+		{
+			if (state)
+				return *state;
+			else
+				return window->input_state();
+		}();
 
 		using WSIS = WindowSystem::InputState;
 		auto upd = [](auto& states, auto& input, auto&& proj)

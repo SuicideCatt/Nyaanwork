@@ -13,6 +13,7 @@ export module Nyaanwork.Input.HLI:decl;
 import Nyaanwork.Core.Math;
 import Nyaanwork.Core.Types;
 import Nyaanwork.Core.Utils.ClearType;
+import Nyaanwork.Core.Utils.PtrContainer;
 import Nyaanwork.WindowSystem.Codes;
 import Nyaanwork.WindowSystem;
 
@@ -195,7 +196,8 @@ export namespace Nyaanwork::Input
 		template<is_axis_type<Axis1D, Axis2D> AxisType>
 		Axis<AxisType> axis(const Str& name);
 
-		void update(Ptr<WindowSystem::Window> window);
+		void update(Ptr<WindowSystem::Window> window,
+					PtrContainer<WindowSystem::InputState> state = nullptr);
 
 	private:
 		struct ActionCont
@@ -231,7 +233,8 @@ export namespace Nyaanwork::Input
 						 std::source_location src = std::source_location::current())
 			-> decltype(cont[""].data);
 
-		void update_window_input(Ptr<WindowSystem::Window> window);
+		void update_window_input(Ptr<WindowSystem::Window> window,
+								 PtrContainer<WindowSystem::InputState> state);
 		void update_action_axis();
 
 		struct
