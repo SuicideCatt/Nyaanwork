@@ -30,7 +30,7 @@ You'll want to create base **C++**/**CMake** project and initialize git.
 2. Add Nyaanwork as git submodule:
 ```bash
 git submodule add $URL path/to/third-party/modules/Nyaanwork
-git submodule update --init --recursive
+git submodule update --init --recursive --depth=1
 ```
 
 3. Add to main `CMakeLists.txt`:
