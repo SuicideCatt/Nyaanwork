@@ -259,14 +259,14 @@ export namespace Nyaanwork::WindowSystem::Backends::Linux::XCB
 		return generate_id();
 	}
 
-	void Instance::register_window_end(Window &window)
+	void Instance::register_window_end(Window& window)
 	{
 		m_windows.all[window.xwindow()] = &window;
 		m_thread.no_windows = m_windows.all.empty();
 		m_thread.mutex.unlock();
 	}
 
-	void Instance::unregister_window(Window &window)
+	void Instance::unregister_window(Window& window)
 	{
 		auto l = lock();
 		m_windows.all.erase(window.xwindow());

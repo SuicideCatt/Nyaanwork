@@ -277,8 +277,8 @@ export namespace Nyaanwork::WindowSystem::Backends::Linux::XCB
 		void handle_xkb_event(::XCB::Events::Generic::element_type& ev);
 
 		::XCB::Window::ID register_window_begin() override;
-		void register_window_end(Window &window) override;
-		void unregister_window(Window &window) override;
+		void register_window_end(Window& window) override;
+		void unregister_window(Window& window) override;
 
 		::XCB::Cursor::Cursor load_cursor(Base::Window::Cursor cursor) override;
 
