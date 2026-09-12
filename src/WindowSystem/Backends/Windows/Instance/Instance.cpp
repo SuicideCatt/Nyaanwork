@@ -115,12 +115,6 @@ export namespace Nyaanwork::WindowSystem::Backends::Windows
 		std::scoped_lock<std::mutex> lock() const
 			{ return std::scoped_lock(m_mutex); }
 
-		void handle_displays_change() override
-		{
-			m_displays_changed = true;
-			signal_send<Slots::displays_changed>(*this);
-		}
-
 		void handle_keyboard_focus(Window* window) override
 		{
 			auto l = lock();
@@ -145,6 +139,12 @@ export namespace Nyaanwork::WindowSystem::Backends::Windows
 			auto l = lock();
 			if (m_windows.mouse == window)
 				m_windows.mouse = nullptr;
+		}
+
+		void handle_displays_change() override
+		{
+			m_displays_changed = true;
+			signal_send<Slots::displays_changed>(*this);
 		}
 
 		HCURSOR load_cursor(Base::Window::Cursor cursor) override;
