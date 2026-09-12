@@ -271,6 +271,15 @@ export namespace Nyaanwork::WindowSystem::Backends::Linux::XCB
 		auto l = lock();
 		m_windows.all.erase(window.xwindow());
 		m_thread.no_windows = m_windows.all.empty();
+
+		auto clean_focused = [window=&window](auto& focused)
+		{
+			if (focused == window)
+				focused = nullptr;
+		};
+
+		clean_focused(m_windows.focused.keyboard);
+		clean_focused(m_windows.focused.mouse);
 	}
 
 	::XCB::Cursor::Cursor Instance::load_cursor(Base::Window::Cursor cursor)

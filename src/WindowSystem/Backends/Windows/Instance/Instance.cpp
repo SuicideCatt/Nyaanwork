@@ -37,6 +37,8 @@ namespace Nyaanwork::WindowSystem::Backends::Windows
 	protected:
 		friend Window;
 
+		virtual void handle_window_destory(Window* window) = 0;
+
 		virtual void handle_keyboard_focus(Window* window) = 0;
 		virtual void handle_keyboard_unfocus(Window* window) = 0;
 
@@ -114,6 +116,20 @@ export namespace Nyaanwork::WindowSystem::Backends::Windows
 	private:
 		std::scoped_lock<std::mutex> lock() const
 			{ return std::scoped_lock(m_mutex); }
+
+		void handle_window_destory(Window* window) override
+		{
+			auto l = lock();
+
+			auto clean_focused = [window](auto& focused)
+			{
+				if (focused == window)
+					focused = nullptr;
+			};
+
+			clean_focused(m_windows.keyboard);
+			clean_focused(m_windows.mouse);
+		}
 
 		void handle_keyboard_focus(Window* window) override
 		{

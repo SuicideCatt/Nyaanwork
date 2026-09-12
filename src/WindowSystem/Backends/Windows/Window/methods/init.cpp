@@ -106,5 +106,8 @@ export namespace Nyaanwork::WindowSystem::Backends::Windows
 
 		m_work = false;
 		m_thread.join();
+
+		auto& i = *m_instance;
+		static_cast<InstanceWindowInterface&>(i).handle_window_destory(this);
 	}
 }
