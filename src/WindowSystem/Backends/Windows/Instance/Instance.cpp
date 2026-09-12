@@ -156,7 +156,6 @@ export namespace Nyaanwork::WindowSystem::Backends::Windows
 						   GetUPtr<ClearType<HCURSOR>, &DestroyCursor>> m_cursors;
 
 		struct {
-			usize count;
 			Window* keyboard;
 			Window* mouse;
 		} m_windows;
