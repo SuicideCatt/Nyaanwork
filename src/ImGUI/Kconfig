@@ -1,0 +1,4 @@
+config NYAANWORK_IMGUI
+	bool "ImGUI"
+	default n
+	depends on NYAANWORK_WINDOW_SYSTEM

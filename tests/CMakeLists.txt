@@ -46,3 +46,7 @@ endif()
 if (CONFIG_NYAANWORK_TESTS_INPUT)
 	nyaanwork_add_texec(Input hli)
 endif()
+
+if (CONFIG_NYAANWORK_TESTS_IMGUI AND CONFIG_NYAANWORK_WINDOW_SYSTEM_OPENGL)
+	nyaanwork_add_texec(ImGUI main)
+endif()

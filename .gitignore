@@ -3,3 +3,4 @@ build
 *.out
 gede*.ini
 .config*
+**/imgui.ini

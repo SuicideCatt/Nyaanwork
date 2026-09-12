@@ -19,4 +19,9 @@ menu "Tests"
 		bool "Input"
 		default y
 		depends on NYAANWORK_INPUT
+
+	config NYAANWORK_TESTS_IMGUI
+		bool "ImGUI"
+		default y
+		depends on NYAANWORK_IMGUI
 endmenu

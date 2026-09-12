@@ -21,12 +21,17 @@ target_include_directories(${PROJECT_NAME}
 	INTERFACE "${CMAKE_BINARY_DIR}/Nyaanwork/include"
 )
 
+add_subdirectory(third_party)
+
 nyaanwork_add_module(Core)
 nyaanwork_add_module_with_config(Asset NYAANWORK_ASSET DEPENDS Core)
 nyaanwork_add_module_with_config(WindowSystem NYAANWORK_WINDOW_SYSTEM
 								 DEPENDS Core OPTIONAL Asset)
 nyaanwork_add_module_with_config(Input NYAANWORK_INPUT
 								 DEPENDS Core WindowSystem)
+nyaanwork_add_module_with_config(ImGUI NYAANWORK_IMGUI
+								 DEPENDS Core WindowSystem
+								 BINARY imgui)
 
 include(cmake/scan.cmake)
 include(cmake/run.cmake)

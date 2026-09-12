@@ -111,3 +111,84 @@ int main()
 	return 0;
 }
 ```
+
+### ImGUI (with OpenGL)
+
+Nyaanwork containts Dear ImGui like git submodule, and automatically link ImGui
+with render backeds enabled in WindowSystem
+
+Enable OpenGL in Kconfig (`Nyaanwork` -> `Modules` -> `WindowSystem` -> `OpenGL support`)
+
+Enable ImGUI module in Kconfig (`Nyaanwork` -> `Modules` -> `ImGUI`)
+
+```cpp
+#include <GL/gl.h>
+#include <imgui.h>
+#include <imgui_impl_opengl3.h>
+
+import Nyaanwork.Core.Types;
+import Nyaanwork.ImGUI;
+import Nyaanwork.Input.HLI;
+import Nyaanwork.WindowSystem.OpenGL;
+import Nyaanwork.WindowSystem;
+
+int main()
+{
+	using namespace Nyaanwork;
+	namespace OpenGL = Nyaanwork::WindowSystem::OpenGL;
+
+	WindowSystem::Instance instance;
+    auto gl_instance = instance->create_opengl_instance(OpenGL::Instance::API::gl);
+
+	auto window = instance->create_window({
+		.title = "Hello Nyaanwork + Dear ImGui!",
+		.bounds = {
+			.position = {100, 100},
+			.resolution = {.value = {800, 800}}
+		},
+		.resizable = true,
+	});
+    auto gl = window->create_opengl_surface_context(gl_instance, OpenGL::Context::Profile::core, {3, 3});
+	gl->make_current();
+	gl->swap_interval(1);
+	glClearColor(0, 0, 0, 1);
+
+	ImGUI nyaanwork_imgui;
+	ImGui_ImplOpenGL3_Init();
+
+	ImGui::StyleColorsDark();
+
+    Input::HLI hli;
+	while (!window->should_close())
+	{
+		using namespace Input::Codes; // or WindowSystem::Codes
+
+        auto input_state = window->input_state();
+
+		hli.update(window, input_state);
+        nyaanwork_imgui.update(window, input_state);
+
+		if (hli.state(Key::escape).release)
+		{
+			window->close();
+			break;
+		}
+
+		auto [w, h] = window->resolution();
+		glViewport(0, 0, w, h);
+		glClear(GL_COLOR_BUFFER_BIT);
+		ImGui_ImplOpenGL3_NewFrame();
+		nyaanwork_imgui.new_frame(window);
+
+		ImGui::ShowDemoWindow();
+
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+		gl->swap_buffers();
+	}
+
+    ImGui_ImplOpenGL3_Shutdown();
+
+	return 0;
+}
+```

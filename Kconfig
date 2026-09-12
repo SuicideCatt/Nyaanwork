@@ -2,6 +2,7 @@ menu "Modules"
 	rsource "src/Asset/Kconfig"
 	rsource "src/WindowSystem/Kconfig"
 	rsource "src/Input/Kconfig"
+	rsource "src/ImGUI/Kconfig"
 endmenu
 
 config NYAANWORK_TESTS
