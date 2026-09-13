@@ -117,9 +117,11 @@ int main()
 Nyaanwork containts Dear ImGui like git submodule, and automatically link ImGui
 with render backeds enabled in WindowSystem
 
-Enable OpenGL in Kconfig (`Nyaanwork` -> `Modules` -> `WindowSystem` -> `OpenGL support`)
+Enable OpenGL in Kconfig
+(`(Top)` -> `Nyaanwork` -> `Modules` -> `WindowSystem` -> `OpenGL support`)
 
-Enable ImGUI module in Kconfig (`Nyaanwork` -> `Modules` -> `ImGUI`)
+Enable ImGUI module in Kconfig
+(`(Top)` -> `Nyaanwork` -> `Modules` -> `ImGUI`)
 
 ```cpp
 #include <GL/gl.h>
