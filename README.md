@@ -18,7 +18,7 @@ You'll want to create base **C++**/**CMake** project and initialize git.
 	On ArchLinux:
 	```bash
 	# Core
-	sudo pacman -Sy ninja cmake python clang glm
+	sudo pacman -Sy ninja cmake python clang
 
 	# WindowSystem
 	sudo pacman -Sy libglvnd vulkan-headers vulkan-icd-loader
