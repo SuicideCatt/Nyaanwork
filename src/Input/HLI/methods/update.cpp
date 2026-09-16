@@ -120,7 +120,7 @@ export namespace Nyaanwork::Input
 
 		auto upd_axis = [this](auto& cont)
 		{
-
+			bool clamp = true;
 			for (auto& [name, axis] : cont)
 			{
 				using Data = decltype(cont[""].data);
@@ -135,17 +135,41 @@ export namespace Nyaanwork::Input
 					{
 						auto& [value, code] = combination[i];
 
-						std::visit([this, &combination_value, value](const auto& code)
+						std::visit([this, &clamp, &combination_value, value](const auto& code)
 						{
-							if (binary_state(code))
-								combination_value += value;
+							if constexpr (std::same_as<ClearType<decltype(code)>, Codes::Mouse>)
+							{
+								clamp = false;
+								switch (code)
+								{
+								case Codes::Mouse::mouse_x:
+									combination_value += motion().x * value;
+									break;
+								case Codes::Mouse::mouse_y:
+									combination_value += motion().y * value;
+									break;
+
+								case Codes::Mouse::mouse_wheel_x:
+									combination_value += wheel().x * value;
+									break;
+								case Codes::Mouse::mouse_wheel_y:
+									combination_value += wheel().y * value;
+									break;
+								}
+							}
+							else
+							{
+								clamp = true;
+								if (binary_state(code))
+									combination_value += value;
+							}
 						}, code);
 					}
 
-					value += clamp(combination_value, min, max);
+					value += clamp? Math::clamp(combination_value, min, max) : combination_value;
 				}
 
-				axis.data = clamp(value, axis.min, axis.max);
+				axis.data = clamp? Math::clamp(value, axis.min, axis.max) : value;
 			}
 		};
 

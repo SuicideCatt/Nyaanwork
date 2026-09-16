@@ -150,7 +150,8 @@ because my test PC doesn't support Vulkan
 	- axis
 		- [x] keyboard
 		- [x] mouse buttons
-		- [ ] mouse move
+		- [x] mouse move
+		- [x] mouse wheel
 		- [ ] gamepad buttons
 		- [ ] gamepad axises
 - Gamepad

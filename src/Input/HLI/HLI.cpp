@@ -22,8 +22,17 @@ export namespace Nyaanwork::Input::Codes
 	using WindowSystem::Codes::Key;
 	using WindowSystem::Codes::Button;
 
+	enum class Mouse : u8
+	{
+		mouse_x, mouse_y,
+		mouse_wheel_x, mouse_wheel_y,
+	};
+
 	template<typename C>
 	concept is_code = std::same_as<Key, C> || std::same_as<Button, C>;
+
+	template<typename C>
+	concept is_axis_code = is_code<C> || std::same_as<Mouse, C>;
 }
 
 export namespace Nyaanwork::Input
@@ -69,7 +78,7 @@ export namespace Nyaanwork::Input
 
 		constexpr AxisParam() = default;
 
-		template<Codes::is_code Codes>
+		template<Codes::is_axis_code Codes>
 		constexpr AxisParam(Codes code, _Type value)
 			: value(value), code(code) {}
 
@@ -77,7 +86,7 @@ export namespace Nyaanwork::Input
 		constexpr AxisParam& operator=(const AxisParam&) = default;
 
 		_Type value;
-		std::variant<Codes::Key, Codes::Button> code;
+		std::variant<Codes::Key, Codes::Button, Codes::Mouse> code;
 	};
 
 	template<typename _Type>

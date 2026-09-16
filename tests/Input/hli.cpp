@@ -1,5 +1,6 @@
 #include <chrono>
 #include <print>
+#include <thread>
 
 import Nyaanwork.Core.Math;
 import Nyaanwork.Core.Types;
@@ -7,7 +8,7 @@ import Nyaanwork.WindowSystem;
 import Nyaanwork.Input.HLI;
 
 using namespace Nyaanwork;
-using namespace WindowSystem::Codes;
+using namespace Input::Codes;
 
 int main(int argc, char** argv)
 {
@@ -56,6 +57,11 @@ int main(int argc, char** argv)
 
 		hli->axis_add<f32>("zoom", Axis1D(P1D(Key::equals, 1.f), P1D(Key::minus, -1.f)),
 								   Axis1D(P1D(Key::num_0, 5.f), P1D(Key::num_9, -5.f)));
+
+		hli->axis_add<vec2<f32>>("mouse", Axis2D(P2D(Mouse::mouse_x, {1.f, 0.f}),
+												 P2D(Mouse::mouse_y, {0.f, -1.f})));
+
+		hli->axis_add<f32>("mouse_wheel", Axis1D(P1D(Mouse::mouse_wheel_y, 1.f)));
 	}
 
 	Input::HLI::Action old_action;
@@ -63,6 +69,9 @@ int main(int argc, char** argv)
 
 	std::chrono::seconds time(0);
 	Input::HLI::Axis1D zoom = {};
+
+	Input::HLI::Axis2D old_mouse = {};
+	Input::HLI::Axis1D old_mouse_wheel = {};
 
 	while (!window->should_close())
 	{
@@ -94,6 +103,18 @@ int main(int argc, char** argv)
 			time = now;
 			std::println("zoom: {}", zoom = new_zoom);
 		}
+
+		auto mouse = hli->axis<vec2<f32>>("mouse");
+		if (mouse != old_mouse)
+			std::println("mouse: {}", mouse);
+		old_mouse = mouse;
+
+		auto mouse_wheel = hli->axis<f32>("mouse_wheel");
+		if (mouse_wheel != old_mouse_wheel)
+			std::println("mouse_wheel: {}", mouse_wheel);
+		old_mouse_wheel = mouse_wheel;
+
+		std::this_thread::sleep_until(std::chrono::steady_clock::now() + std::chrono::milliseconds(16));
 	}
 
 	return 0;

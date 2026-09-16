@@ -97,7 +97,7 @@ int main()
     Input::HLI hli;
 	while (!window->should_close())
 	{
-		using namespace Input::Codes; // or WindowSystem::Codes
+		using namespace Input::Codes;
 
 		hli.update(window);
 
@@ -163,7 +163,7 @@ int main()
     Input::HLI hli;
 	while (!window->should_close())
 	{
-		using namespace Input::Codes; // or WindowSystem::Codes
+		using namespace Input::Codes;
 
         auto input_state = window->input_state();
 
