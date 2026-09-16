@@ -1,3 +1,4 @@
+#include <chrono>
 #include <print>
 
 import Nyaanwork.Core.Math;
@@ -52,10 +53,17 @@ int main(int argc, char** argv)
 
 		hli->axis_slot("test", 0, s0);
 		hli->axis_slot("test", 1, s1);
+
+		hli->axis_add<f32>("zoom", Axis1D(P1D(Key::equals, 1.f), P1D(Key::minus, -1.f)),
+								   Axis1D(P1D(Key::num_0, 5.f), P1D(Key::num_9, -5.f)));
 	}
 
 	Input::HLI::Action old_action;
 	Input::HLI::Axis2D old_axis2d = {};
+
+	std::chrono::seconds time(0);
+	Input::HLI::Axis1D zoom = {};
+
 	while (!window->should_close())
 	{
 		hli->update(window);
@@ -77,6 +85,15 @@ int main(int argc, char** argv)
 		if (axis2d != old_axis2d)
 			std::println("{}", axis2d);
 		old_axis2d = axis2d;
+
+		auto now_clock = std::chrono::steady_clock::now().time_since_epoch();
+		auto now = std::chrono::duration_cast<std::chrono::seconds>(now_clock);
+		auto new_zoom = zoom + hli->axis<f32>("zoom");
+		if (new_zoom != zoom && time != now) // change zoom every second
+		{
+			time = now;
+			std::println("zoom: {}", zoom = new_zoom);
+		}
 	}
 
 	return 0;
