@@ -52,8 +52,8 @@ export namespace Nyaanwork::Input
 				{
 					if (size > 0)
 					{
-						data.min = Math::min(cont.min, min);
-						data.max = Math::max(cont.max, max);
+						data.min = Math::min(data.min, min);
+						data.max = Math::max(data.max, max);
 					}
 				}
 			}
