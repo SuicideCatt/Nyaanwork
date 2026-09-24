@@ -142,17 +142,17 @@ export namespace Nyaanwork::Input
 								clamp = false;
 								switch (code)
 								{
-								case Codes::Mouse::mouse_x:
+								case Codes::Mouse::x:
 									combination_value += motion().x * value;
 									break;
-								case Codes::Mouse::mouse_y:
+								case Codes::Mouse::y:
 									combination_value += motion().y * value;
 									break;
 
-								case Codes::Mouse::mouse_wheel_x:
+								case Codes::Mouse::wheel_x:
 									combination_value += wheel().x * value;
 									break;
-								case Codes::Mouse::mouse_wheel_y:
+								case Codes::Mouse::wheel_y:
 									combination_value += wheel().y * value;
 									break;
 								}

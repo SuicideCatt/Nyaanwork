@@ -58,10 +58,10 @@ int main(int argc, char** argv)
 		hli->axis_add<f32>("zoom", Axis1D(P1D(Key::equals, 1.f), P1D(Key::minus, -1.f)),
 								   Axis1D(P1D(Key::num_0, 5.f), P1D(Key::num_9, -5.f)));
 
-		hli->axis_add<vec2<f32>>("mouse", Axis2D(P2D(Mouse::mouse_x, {1.f, 0.f}),
-												 P2D(Mouse::mouse_y, {0.f, -1.f})));
+		hli->axis_add<vec2<f32>>("mouse", Axis2D(P2D(Mouse::x, {1.f, 0.f}),
+												 P2D(Mouse::y, {0.f, -1.f})));
 
-		hli->axis_add<f32>("mouse_wheel", Axis1D(P1D(Mouse::mouse_wheel_y, 1.f)));
+		hli->axis_add<f32>("mouse_wheel", Axis1D(P1D(Mouse::wheel_y, 1.f)));
 	}
 
 	Input::HLI::Action old_action;

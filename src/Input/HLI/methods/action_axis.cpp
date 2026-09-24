@@ -50,11 +50,11 @@ export namespace Nyaanwork::Input
 
 				for (const auto& [combination, min, max, size] : data.combinations)
 				{
-					if (size > 0)
-					{
-						data.min = Math::min(data.min, min);
-						data.max = Math::max(data.max, max);
-					}
+					if (size == 0)
+						continue;
+
+					data.min = Math::min(data.min, min);
+					data.max = Math::max(data.max, max);
 				}
 			}
 		};
@@ -99,11 +99,11 @@ export namespace Nyaanwork::Input
 
 			for (const auto& [combination, min, max, size] : data.combinations)
 			{
-				if (size > 0)
-				{
-					data.min = Math::min(data.min, min);
-					data.max = Math::max(data.max, max);
-				}
+				if (size == 0)
+					continue;
+
+				data.min = Math::min(data.min, min);
+				data.max = Math::max(data.max, max);
 			}
 		};
 

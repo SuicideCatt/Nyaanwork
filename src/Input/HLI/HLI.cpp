@@ -24,8 +24,8 @@ export namespace Nyaanwork::Input::Codes
 
 	enum class Mouse : u8
 	{
-		mouse_x, mouse_y,
-		mouse_wheel_x, mouse_wheel_y,
+		x, y,
+		wheel_x, wheel_y,
 	};
 
 	template<typename C>
