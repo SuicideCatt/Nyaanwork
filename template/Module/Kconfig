@@ -1,7 +1,5 @@
 config NYAANWORK_Module
-	bool "Module"
+	bool "Enable Module module"
 	default y
 
-menu "Module"
-	depends on NYAANWORK_Module
-endmenu
+#	depends on NYAANWORK_Module

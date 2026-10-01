@@ -1,12 +1,6 @@
-menu "Modules"
-	rsource "src/Asset/Kconfig"
-	rsource "src/WindowSystem/Kconfig"
-	rsource "src/Input/Kconfig"
-	rsource "src/ImGUI/Kconfig"
-endmenu
-
-config NYAANWORK_TESTS
-	bool "Enable tests"
-	default n
+rsource "src/Asset/Kconfig"
+rsource "src/WindowSystem/Kconfig"
+rsource "src/Input/Kconfig"
+rsource "src/ImGUI/Kconfig"
 
 rsource "tests/Kconfig"

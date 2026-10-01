@@ -1,4 +1,4 @@
 config NYAANWORK_IMGUI
-	bool "ImGUI"
+	bool "Enable ImGUI module"
 	default n
 	depends on NYAANWORK_WINDOW_SYSTEM
