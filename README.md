@@ -24,7 +24,7 @@ You'll want to create base **C++**/**CMake** project and initialize git.
 	sudo pacman -Sy libglvnd vulkan-headers vulkan-icd-loader
 
 	# WindowSystem/Linux/XCB
-	sudo pacman -Sy libx11 libxcb libxkbcommon libxkbcommon-x11
+	sudo pacman -Sy libx11 libxcb libxkbcommon libxkbcommon-x11 xcb-util-cursor
 	```
 
 2. Add Nyaanwork as git submodule:
