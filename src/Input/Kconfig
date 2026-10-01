@@ -5,12 +5,12 @@ config NYAANWORK_INPUT
 
 config NYAANWORK_INPUT_COMBINATION_SIZE
 	int "Key and buttons combination size"
-	range 2 6
+	range 2 8
 	default 4
 	depends on NYAANWORK_INPUT
 
 config NYAANWORK_INPUT_COMBINATIONS_COUNT
 	int "Key and buttons combinations count"
-	range 1 4
+	range 1 6
 	default 2
 	depends on NYAANWORK_INPUT
