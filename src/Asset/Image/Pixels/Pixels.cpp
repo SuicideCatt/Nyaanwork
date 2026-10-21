@@ -149,6 +149,8 @@ export namespace Nyaanwork::Asset::Pixels
 			);
 		}
 
+		constexpr auto operator<=>(const RGB& oth) NYAAN_CNOEX = default;
+
 		constexpr explicit operator vec3<u8>() NYAAN_CNOEX
 			{ return vec3<u8>(r, g, b); }
 
@@ -191,6 +193,8 @@ export namespace Nyaanwork::Asset::Pixels
 		constexpr RGBA(R r, u8 a = 255) noexcept;
 		constexpr RGBA(RA ra) noexcept;
 		constexpr RGBA(RGB rgb, u8 a = 255) noexcept;
+
+		constexpr auto operator<=>(const RGBA& oth) NYAAN_CNOEX = default;
 
 		constexpr u32 hex() NYAAN_CNOEX
 		{
