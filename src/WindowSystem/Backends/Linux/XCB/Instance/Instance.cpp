@@ -20,7 +20,7 @@ import :Bind.Xlib;
 import :decl;
 
 import Nyaanwork.Core.Types;
-import Nyaanwork.Core.Utils.UPtr;
+import Nyaanwork.Core.Utils.Ptr;
 import Nyaanwork.WindowSystem.Backends.Base;
 
 #ifdef NYAANWORK_WINDOW_SYSTEM_OPENGL

@@ -12,8 +12,8 @@ import :Image;
 
 import Nyaanwork.Asset.Exception;
 import Nyaanwork.Core.Types;
-import Nyaanwork.Core.Utils.FunctionTraits;
-import Nyaanwork.Core.Utils.PtrContainer;
+import Nyaanwork.Core.Utils.Types;
+import Nyaanwork.Core.Utils.Ptr;
 
 export namespace Nyaanwork::Asset
 {

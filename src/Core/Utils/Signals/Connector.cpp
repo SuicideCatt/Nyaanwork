@@ -7,9 +7,7 @@ export module Nyaanwork.Core.Utils.Signals:Connector;
 import :List;
 import :SlotInfo;
 
-import Nyaanwork.Core.Utils.ClearType;
-import Nyaanwork.Core.Utils.Flags;
-import Nyaanwork.Core.Utils.FunctionTraits;
+import Nyaanwork.Core.Utils.Types;
 
 namespace Nyaanwork::Utils
 {

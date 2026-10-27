@@ -3,8 +3,7 @@ module;
 export module Nyaanwork.Core.Utils.Signals:SlotInfo;
 import :Callers;
 
-import Nyaanwork.Core.Utils.Flags;
-import Nyaanwork.Core.Utils.FunctionTraits;
+import Nyaanwork.Core.Utils.Types;
 
 export namespace Nyaanwork::Utils
 {

@@ -3,7 +3,7 @@ module;
 #include <concepts>
 #include <tuple>
 
-export module Nyaanwork.Core.Utils.FunctionTraits;
+export module Nyaanwork.Core.Utils.Types:Traits.Function;
 
 import Nyaanwork.Core.Types;
 
@@ -166,9 +166,4 @@ export namespace Nyaanwork::Utils
 	template<typename Owner, typename Method>
 	concept is_method_pointer_type_from =
 		std::same_as<Owner, typename MethodTraitsT<Method>::Owner>;
-}
-
-export namespace Nyaanwork
-{
-	using namespace Utils;
 }

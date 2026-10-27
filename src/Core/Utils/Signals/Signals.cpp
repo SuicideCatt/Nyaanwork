@@ -10,7 +10,7 @@ export import :SlotInfo;
 import :BaseSender;
 import :Callers;
 
-import Nyaanwork.Core.Utils.Flags;
+import Nyaanwork.Core.Utils.Types;
 
 export namespace Nyaanwork::Utils
 {

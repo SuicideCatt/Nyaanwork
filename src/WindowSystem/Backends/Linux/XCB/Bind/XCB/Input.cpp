@@ -11,7 +11,7 @@ import :Bind.XCB.Base;
 import :Bind.XCB.Helper;
 
 import Nyaanwork.Core.Utils.Flags;
-import Nyaanwork.Core.Utils.PtrContainer;
+import Nyaanwork.Core.Utils.Ptr;
 
 namespace XCB::Input
 {

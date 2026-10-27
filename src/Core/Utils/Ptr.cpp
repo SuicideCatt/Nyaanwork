@@ -2,9 +2,12 @@ module;
 
 #include <Core/Defines.hpp>
 
+#include <memory>
 #include <utility>
 
-export module Nyaanwork.Core.Utils.PtrContainer;
+export module Nyaanwork.Core.Utils.Ptr;
+
+import Nyaanwork.Core.Utils.Types;
 
 #ifndef NDEBUG
 import Nyaanwork.Core.Types;
@@ -75,8 +78,25 @@ namespace Nyaanwork::Utils::Debug::Error
 	#define DEBUG_NULLPTR
 #endif
 
+namespace Nyaanwork::Utils
+{
+	template<typename Who, typename Res, GetFunctionPtr<false, Res, Who*> function>
+	struct Deleter
+	{
+		using FunctionTraits = Utils::FunctionTraits<function>;
+
+		void operator()(Who* ptr)
+			{ function(ptr); }
+	};
+}
+
 export namespace Nyaanwork::Utils
 {
+	template<typename Who, auto function,
+			 typename Res = FunctionTraits<function>::Result,
+			 GetFunctionPtr<false, Res, Who*> check_function = function>
+	using GetUPtr = std::unique_ptr<Who, Deleter<Who, Res, check_function>>;
+
 	template<typename _Type>
 	class PtrContainer
 	{

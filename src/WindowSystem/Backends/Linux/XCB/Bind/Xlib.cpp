@@ -9,7 +9,7 @@ module;
 export module Nyaanwork.WindowSystem.Backends.Linux.XCB:Bind.Xlib;
 import :Exception;
 
-import Nyaanwork.Core.Utils.UPtr;
+import Nyaanwork.Core.Utils.Ptr;
 
 export namespace Xlib
 {

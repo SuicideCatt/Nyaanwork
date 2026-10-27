@@ -2,7 +2,7 @@ module;
 
 #include <concepts>
 
-export module Nyaanwork.Core.Utils.MemberTraits;
+export module Nyaanwork.Core.Utils.Types:Traits.Member;
 
 import Nyaanwork.Core.Types;
 
@@ -62,9 +62,4 @@ export namespace Nyaanwork::Utils
 	template<typename Owner, typename Member>
 	concept is_member_pointer_type_from =
 		std::same_as<Owner, typename MemberTraitsT<Member>::Owner>;
-}
-
-export namespace Nyaanwork
-{
-	using namespace Utils;
 }

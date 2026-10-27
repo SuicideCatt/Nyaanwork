@@ -8,8 +8,8 @@ module;
 export module Nyaanwork.Core.Utils.Signals:Callers;
 
 import Nyaanwork.Core.Types;
-import Nyaanwork.Core.Utils.Flags;
-import Nyaanwork.Core.Utils.PtrContainer;
+import Nyaanwork.Core.Utils.Types;
+import Nyaanwork.Core.Utils.Ptr;
 
 namespace Nyaanwork::Utils
 {

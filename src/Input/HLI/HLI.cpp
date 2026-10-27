@@ -12,8 +12,8 @@ export module Nyaanwork.Input.HLI:decl;
 
 import Nyaanwork.Core.Math;
 import Nyaanwork.Core.Types;
-import Nyaanwork.Core.Utils.ClearType;
-import Nyaanwork.Core.Utils.PtrContainer;
+import Nyaanwork.Core.Utils.Ptr;
+import Nyaanwork.Core.Utils.Types;
 import Nyaanwork.WindowSystem.Codes;
 import Nyaanwork.WindowSystem;
 

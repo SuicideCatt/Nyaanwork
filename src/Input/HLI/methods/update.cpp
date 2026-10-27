@@ -9,7 +9,7 @@ import :decl;
 
 import Nyaanwork.Core.Math;
 import Nyaanwork.Core.Types;
-import Nyaanwork.Core.Utils.PtrContainer;
+import Nyaanwork.Core.Utils.Ptr;
 
 namespace Nyaanwork::Input
 {

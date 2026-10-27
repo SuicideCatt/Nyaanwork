@@ -10,7 +10,7 @@ import :Bind.XCB.Helper;
 import :Exception;
 
 import Nyaanwork.Core.Utils.Flags;
-import Nyaanwork.Core.Utils.PtrContainer;
+import Nyaanwork.Core.Utils.Ptr;
 
 export namespace XCB::Cursor
 {

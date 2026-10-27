@@ -11,8 +11,8 @@ export module Nyaanwork.ImGUI;
 export import :Exception;
 
 import Nyaanwork.Core.Types;
-import Nyaanwork.Core.Utils.Flags;
-import Nyaanwork.Core.Utils.PtrContainer;
+import Nyaanwork.Core.Utils.Ptr;
+import Nyaanwork.Core.Utils.Types;
 import Nyaanwork.WindowSystem;
 
 namespace Nyaanwork

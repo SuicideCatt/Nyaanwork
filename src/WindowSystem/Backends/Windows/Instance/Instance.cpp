@@ -19,8 +19,8 @@ export module Nyaanwork.WindowSystem.Backends.Windows:Instance.decl;
 import :SAFETY;
 import :decl;
 
-import Nyaanwork.Core.Utils.ClearType;
-import Nyaanwork.Core.Utils.UPtr;
+import Nyaanwork.Core.Utils.Ptr;
+import Nyaanwork.Core.Utils.Types;
 import Nyaanwork.WindowSystem.Backends.Base;
 
 #ifdef NYAANWORK_WINDOW_SYSTEM_OPENGL

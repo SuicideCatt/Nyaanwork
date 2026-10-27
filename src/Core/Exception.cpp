@@ -9,8 +9,7 @@ module;
 
 export module Nyaanwork.Core.Exception;
 
-import Nyaanwork.Core.Utils.Flags;
-import Nyaanwork.Core.Utils.FunctionTraits;
+import Nyaanwork.Core.Utils.Types;
 
 namespace Nyaanwork
 {

@@ -13,8 +13,8 @@ import :API;
 import :Exception;
 
 import Nyaanwork.Core.Types;
-import Nyaanwork.Core.Utils.ClearType;
-import Nyaanwork.Core.Utils.UPtr;
+import Nyaanwork.Core.Utils.Ptr;
+import Nyaanwork.Core.Utils.Types;
 
 namespace Nyaanwork::WindowSystem::OpenGL::EGL
 {

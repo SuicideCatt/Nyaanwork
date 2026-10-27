@@ -15,7 +15,7 @@ import :Bind.XKB;
 import :Exception;
 
 import Nyaanwork.Core.Types;
-import Nyaanwork.Core.Utils.Flags;
+import Nyaanwork.Core.Utils.Types;
 
 export namespace XCB::XKB
 {

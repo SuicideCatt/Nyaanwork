@@ -6,7 +6,7 @@ module;
 export module Nyaanwork.Core.Utils.Signals:BaseSender;
 import :Connector;
 
-import Nyaanwork.Core.Utils.Flags;
+import Nyaanwork.Core.Utils.Types;
 
 namespace Nyaanwork::Utils
 {

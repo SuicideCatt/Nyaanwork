@@ -7,7 +7,7 @@ module;
 export module Nyaanwork.WindowSystem.Backends.Base:Window.InputState;
 
 import Nyaanwork.Core.Types;
-import Nyaanwork.Core.Utils.Flags;
+import Nyaanwork.Core.Utils.Types;
 import Nyaanwork.WindowSystem.Codes;
 
 namespace Nyaanwork::WindowSystem::Backends::Base

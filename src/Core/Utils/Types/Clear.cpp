@@ -2,7 +2,7 @@ module;
 
 #include <type_traits>
 
-export module Nyaanwork.Core.Utils.ClearType;
+export module Nyaanwork.Core.Utils.Types:Clear;
 
 namespace Nyaanwork::Utils
 {
@@ -21,9 +21,4 @@ namespace Nyaanwork::Utils
 	export template<typename Type>
 	using ClearType =
 		RemoveCV<RemoveAllExtents<RemovePointer<RemoveReference<Type>>>>;
-}
-
-export namespace Nyaanwork
-{
-	using namespace Utils;
 }

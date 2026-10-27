@@ -11,7 +11,8 @@ import :Exception;
 
 import Nyaanwork.Core.Types;
 import Nyaanwork.Core.Utils.Flags;
-import Nyaanwork.Core.Utils.UPtr;
+import Nyaanwork.Core.Utils.Ptr;
+import Nyaanwork.Core.Utils.Types;
 
 namespace XKB
 {

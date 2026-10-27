@@ -10,7 +10,7 @@ export module Nyaanwork.Input.HLI:methods.action_axis;
 import :Exception;
 import :decl;
 
-import Nyaanwork.Core.Utils.ClearType;
+import Nyaanwork.Core.Utils.Types;
 
 export namespace Nyaanwork::Input
 {

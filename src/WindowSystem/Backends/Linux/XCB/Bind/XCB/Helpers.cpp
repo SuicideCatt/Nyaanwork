@@ -12,9 +12,8 @@ module;
 export module Nyaanwork.WindowSystem.Backends.Linux.XCB:Bind.XCB.Helper;
 
 import Nyaanwork.Core.Types;
-import Nyaanwork.Core.Utils.ClearType;
-import Nyaanwork.Core.Utils.PtrContainer;
-import Nyaanwork.Core.Utils.UPtr;
+import Nyaanwork.Core.Utils.Ptr;
+import Nyaanwork.Core.Utils.Types;
 
 export namespace XCB::Helper
 {

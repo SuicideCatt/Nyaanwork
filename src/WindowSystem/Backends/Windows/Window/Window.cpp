@@ -20,8 +20,8 @@ import :decl;
 
 import Nyaanwork.Core.Math;
 import Nyaanwork.Core.Types;
-import Nyaanwork.Core.Utils.ClearType;
-import Nyaanwork.Core.Utils.UPtr;
+import Nyaanwork.Core.Utils.Ptr;
+import Nyaanwork.Core.Utils.Types;
 import Nyaanwork.WindowSystem.Backends.Base;
 
 #ifdef NYAANWORK_ASSET_IMAGE
