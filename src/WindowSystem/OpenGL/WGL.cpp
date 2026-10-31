@@ -211,9 +211,9 @@ export namespace Nyaanwork::WindowSystem::OpenGL::WGL
 		u8 swap_interval() NYAAN_CNOEX
 			{ return m_swap_interval; }
 
-		using ProcType = PROC;
+		using ProcType = void (*)();
 		static ProcType get_proc_address(const char* proc_name)
-			{ return wglGetProcAddress(proc_name); }
+			{ return reinterpret_cast<ProcType>(wglGetProcAddress(proc_name)); }
 
 	protected:
 		void init(Instance& instance, Profile profile, vec2<u8> min_version)
