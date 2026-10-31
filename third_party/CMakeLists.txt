@@ -1,3 +1,5 @@
+project(Nyaanwork-ThirdParty LANGUAGES CXX)
+
 if (CONFIG_NYAANWORK_IMGUI)
 	add_library(imgui STATIC)
 	target_include_directories(imgui PUBLIC include)
