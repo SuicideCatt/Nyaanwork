@@ -94,7 +94,7 @@ int main()
 		.resizable = false,
 	});
 
-    Input::HLI hli;
+	Input::HLI hli;
 	while (!window->should_close())
 	{
 		using namespace Input::Codes;
@@ -136,7 +136,7 @@ int main()
 	namespace OpenGL = Nyaanwork::WindowSystem::OpenGL;
 
 	WindowSystem::Instance instance;
-    auto gl_instance = instance->create_opengl_instance(OpenGL::Instance::API::gl);
+	auto gl_instance = instance->create_opengl_instance(OpenGL::Instance::API::gl);
 
 	auto window = instance->create_window({
 		.title = "Hello Nyaanwork + Dear ImGui!",
@@ -146,7 +146,7 @@ int main()
 		},
 		.resizable = true,
 	});
-    auto gl = window->create_opengl_surface_context(gl_instance, OpenGL::Context::Profile::core, {3, 3});
+	auto gl = window->create_opengl_surface_context(gl_instance, OpenGL::Context::Profile::core, {3, 3});
 	gl->make_current();
 	gl->swap_interval(1);
 	glClearColor(0, 0, 0, 1);
@@ -156,15 +156,15 @@ int main()
 
 	ImGui::StyleColorsDark();
 
-    Input::HLI hli;
+	Input::HLI hli;
 	while (!window->should_close())
 	{
 		using namespace Input::Codes;
 
-        auto input_state = window->input_state();
+		auto input_state = window->input_state();
 
 		hli.update(window, input_state);
-        nyaanwork_imgui.update(window, input_state);
+		nyaanwork_imgui.update(window, input_state);
 
 		if (hli.state(Key::escape).release)
 		{
@@ -185,7 +185,7 @@ int main()
 		gl->swap_buffers();
 	}
 
-    ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplOpenGL3_Shutdown();
 
 	return 0;
 }
