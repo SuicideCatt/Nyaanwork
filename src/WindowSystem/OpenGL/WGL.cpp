@@ -260,8 +260,6 @@ export namespace Nyaanwork::WindowSystem::OpenGL::WGL
 				instance.module().create_context(native_surface, nullptr, attribs);
 			if (!m_context) NYAAN_UNLIK
 				throw Error::Exception("Context", Error::Code::fail_to_create);
-
-			m_swap_interval = 0;
 		}
 
 		void make_current(Instance& instance, Surface& surface)
