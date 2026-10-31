@@ -28,6 +28,38 @@ namespace Nyaanwork::WindowSystem::OpenGL::WGL::Func
 	using SwapInterval = BOOL(*)(int);
 }
 
+namespace Nyaanwork::WindowSystem::OpenGL::WGL
+{
+	HMODULE get_gl_module()
+	{
+		static HMODULE gl = nullptr;
+
+		if (gl)
+			return gl;
+
+		DWORD size = 1;
+		EnumProcessModules(GetCurrentProcess(), nullptr, 0, &size);
+		std::vector<HMODULE> modules(size);
+		EnumProcessModules(GetCurrentProcess(),
+						   modules.data(), sizeof(HMODULE) * size, &size);
+
+		std::wstring result(MAX_PATH, '\0');
+		for (auto m : modules)
+		{
+			auto len = GetModuleFileNameW(m, result.data(), result.size());
+			std::wstring name(result.data(), len);
+			std::transform(name.begin(), name.end(),
+						   name.begin(), [](char c) { return std::toupper(c); });
+			std::filesystem::path path = name;
+			name = path.filename().wstring();
+			if (name == L"OPENGL32.DLL") NYAAN_UNLIK
+				return (gl = m);
+		}
+
+		throw Error::Exception(Error::Code::opengl32_not_loaded);
+	}
+}
+
 export namespace Nyaanwork::WindowSystem::OpenGL::WGL
 {
 	class Instance
@@ -46,30 +78,7 @@ export namespace Nyaanwork::WindowSystem::OpenGL::WGL
 		Instance(API api, N native_display)
 			: m_api(api)
 		{
-			DWORD size = 1;
-			EnumProcessModules(GetCurrentProcess(), nullptr, 0, &size);
-			std::vector<HMODULE> modules(size);
-			EnumProcessModules(GetCurrentProcess(),
-							   modules.data(), sizeof(HMODULE) * size, &size);
-
-			HMODULE gl = nullptr;
-			std::wstring result(MAX_PATH, '\0');
-			for (auto m : modules)
-			{
-				auto len = GetModuleFileNameW(m, result.data(), result.size());
-				std::wstring name(result.data(), len);
-				std::transform(name.begin(), name.end(),
-							   name.begin(), [](char c) { return std::toupper(c); });
-				std::filesystem::path path = name;
-				name = path.filename().wstring();
-				if (name == L"OPENGL32.DLL") NYAAN_UNLIK
-				{
-					gl = m;
-					break;
-				}
-			}
-			if (!gl)
-				throw Error::Exception(Error::Code::opengl32_not_loaded);
+			auto gl = get_gl_module();
 
 			m_module.swap_buffers =
 				reinterpret_cast<Func::SwapBuffers>(GetProcAddress(gl, "wglSwapBuffers"));
@@ -213,7 +222,13 @@ export namespace Nyaanwork::WindowSystem::OpenGL::WGL
 
 		using ProcType = void (*)();
 		static ProcType get_proc_address(const char* proc_name)
-			{ return reinterpret_cast<ProcType>(wglGetProcAddress(proc_name)); }
+		{
+			PROC func = wglGetProcAddress(proc_name);
+			if (!func)
+				func = GetProcAddress(get_gl_module(), proc_name);
+
+			return reinterpret_cast<ProcType>(func);
+		}
 
 	protected:
 		void init(Instance& instance, Profile profile, vec2<u8> min_version)
