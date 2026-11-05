@@ -1,8 +1,10 @@
 link_libraries(Nyaanwork)
 
 function(nyaanwork_add_texec module name)
-	add_executable("Nyaanwork-Tests-${module}-${name}" "${module}/${name}.cpp")
-	set_target_properties("Nyaanwork-Tests-${module}-${name}" PROPERTIES
+	set(target "Nyaanwork-Tests-${module}-${name}")
+	string(REPLACE "/" "-" target "${target}")
+	add_executable(${target} "${module}/${name}.cpp")
+	set_target_properties(${target} PROPERTIES
 		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/Nyaanwork/Tests/${module}"
 		OUTPUT_NAME "${name}")
 endfunction()
