@@ -160,4 +160,4 @@ because my test PC doesn't support Vulkan
 |                              |              |     |       |
 
 ## ImGUI
-ImGUI integration, similar to `imgui_impl_sdl2.h` or `imgui_impl_sdl3.h`.
+- [x] ImGUI integration, similar to `imgui_impl_sdl2.h` or `imgui_impl_sdl3.h`.
