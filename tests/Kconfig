@@ -26,3 +26,8 @@ config NYAANWORK_TESTS_IMGUI
 	bool "ImGUI"
 	default y
 	depends on NYAANWORK_TESTS && NYAANWORK_IMGUI
+
+config NYAANWORK_TESTS_HIGH_OPENGL
+	bool "HighOpenGL"
+	default y
+	depends on NYAANWORK_TESTS && NYAANWORK_HIGH_OPENGL

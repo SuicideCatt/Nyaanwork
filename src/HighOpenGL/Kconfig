@@ -1,0 +1,6 @@
+config NYAANWORK_HIGH_OPENGL
+	bool "Enable HighOpenGL module"
+	default y
+	depends on NYAANWORK_WINDOW_SYSTEM_OPENGL && NYAANWORK_ASSET_IMAGE
+
+rsource "Core330/Kconfig"

@@ -1,0 +1,9 @@
+export module Nyaanwork.HighOpenGL.Core330;
+export import :CommandBuffer;
+export import :Context;
+export import :Framebuffer;
+export import :Mesh;
+export import :Shader;
+export import :Texture2D;
+export import :UniformBuffer;
+export import :VertexDescriptor;

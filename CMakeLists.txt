@@ -32,6 +32,9 @@ nyaanwork_add_module_with_config(Input NYAANWORK_INPUT
 nyaanwork_add_module_with_config(ImGUI NYAANWORK_IMGUI
 								 DEPENDS Core WindowSystem
 								 BINARY imgui)
+nyaanwork_add_module_with_config(HighOpenGL NYAANWORK_HIGH_OPENGL
+								 DEPENDS Core Asset WindowSystem
+								 BINARY glad_core330)
 
 include(cmake/scan.cmake)
 include(cmake/run.cmake)

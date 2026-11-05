@@ -161,3 +161,78 @@ because my test PC doesn't support Vulkan
 
 ## ImGUI
 - [x] ImGUI integration, similar to `imgui_impl_sdl2.h` or `imgui_impl_sdl3.h`.
+
+## HighOpenGL (HOGL)
+
+### 330 core
+
+Tested on: `AMD, AMD Radeon RX 6600 (...)`
+and `Mesa, NV98` (`Nvidia GeForce G105M` driver `nouveau`)
+
+#### Mesh
+- indices
+	- [x] void
+	- [x] u8
+	- [~] u16
+	- [~] u32
+- types
+	- [x] Static
+	- [~] Dynamic
+- [x] vertex_descriptor (apply)
+
+#### Shader:
+- [x] Module
+- Program
+	- [x] textures (set slots on load)
+	- [x] unifrom buffer (set on load)
+	- [x] uniform
+		- [x] set
+		- [x] cache and pre-load locations
+	- layout
+		- [x] depth
+		- [x] stencil
+		- [x] blend
+		- [x] cull mode
+		- [x] front face
+		- polygon mode
+			- [x] triangle
+			- [~] line
+			- [~] point
+		- [x] vertex_descriptor (just container)
+
+
+#### Texture2D:
+- [ ] multisampling: glTexImage2DMultisample
+- level support
+	- [ ] write
+	- [ ] read
+- color
+	- u8
+		| Format | Write | Read | Framebuffer | Note |
+		|:-------|:-----:|:----:|:-----------:|------|
+		|  R     |   ~   |  ~   |      ~      |
+		|  RG    |   ~   |  ~   |      ~      |
+		|  RGB   |   x   |  ~   |      x      | minimal resolution is {4, 4}
+		|  RGBA  |   ~   |  ~   |      ~      |
+	- HDR (f32)
+		| Format | Write | Read | Framebuffer | Note |
+		|:-------|:-----:|:----:|:-----------:|------|
+		|  R     |   ~   |  ~   |      ~      |
+		|  RG    |   ~   |  ~   |      ~      |
+		|  RGB   |   ~   |  ~   |      x      |
+		|  RGBA  |   ~   |  ~   |      x      |
+- depth+stencil: D f32 S u8
+	- [x] depth
+	- [x] Stencil
+	- [~] write
+	- [~] read
+	- [x] framebuffer
+
+#### Framebuffer:
+- [ ] multisampling: glTexImage2DMultisample
+- [ ] Renderbuffer
+- Texture2D
+	- multi color attachments
+		- [x] 1
+		- [~] 2+
+	- [x] depth attachment

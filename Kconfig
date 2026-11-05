@@ -2,5 +2,6 @@ rsource "src/Asset/Kconfig"
 rsource "src/WindowSystem/Kconfig"
 rsource "src/Input/Kconfig"
 rsource "src/ImGUI/Kconfig"
+rsource "src/HighOpenGL/Kconfig"
 
 rsource "tests/Kconfig"

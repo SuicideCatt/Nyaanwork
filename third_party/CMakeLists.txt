@@ -1,4 +1,4 @@
-project(Nyaanwork-ThirdParty LANGUAGES CXX)
+project(Nyaanwork-ThirdParty LANGUAGES C CXX)
 
 if (CONFIG_NYAANWORK_IMGUI)
 	add_library(imgui STATIC)
@@ -24,4 +24,12 @@ if (CONFIG_NYAANWORK_IMGUI)
 		endif()
 		target_sources(imgui PRIVATE "${IMGUI_BACKENDS}/imgui_impl_vulkan.cpp")
 	endif()
+endif()
+
+if (CONFIG_NYAANWORK_HIGH_OPENGL_CORE330)
+	add_library(glad_core330 STATIC)
+
+	set(glad_path "OpenGL/Core330")
+	target_include_directories(glad_core330 PRIVATE "include/${glad_path}")
+	target_sources(glad_core330 PRIVATE "src/${glad_path}/gl.c")
 endif()

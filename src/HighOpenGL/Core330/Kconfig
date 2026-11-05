@@ -1,0 +1,40 @@
+config NYAANWORK_HIGH_OPENGL_CORE330
+	bool "Enable OpenGL 330 core context"
+	default y
+	depends on NYAANWORK_HIGH_OPENGL
+
+config NYAANWORK_HIGH_OPENGL_CORE330_DYNAMIC_LIMITS
+	bool "Enable dynamic limits"
+	default n
+	depends on NYAANWORK_HIGH_OPENGL_CORE330
+
+# If your GPU have greater limits than current maximum please open issue or PR
+# indluding logs of $build/Nyaanwork/Tests/HighOpenGL/*/init
+
+config NYAANWORK_HIGH_OPENGL_CORE330_TEXTURE_SLOTS
+	int "Texture slots limit"
+	range 1 32 # max from AMD Radeon RX 6600
+	default 16
+	depends on NYAANWORK_HIGH_OPENGL_CORE330
+	depends on !NYAANWORK_HIGH_OPENGL_CORE330_DYNAMIC_LIMITS
+
+config NYAANWORK_HIGH_OPENGL_CORE330_TEXTURE_SIZE
+	int "Texture size limit"
+	range 1 65536 # max from AMD Radeon RX 9070 XT
+	default 1024
+	depends on NYAANWORK_HIGH_OPENGL_CORE330
+	depends on !NYAANWORK_HIGH_OPENGL_CORE330_DYNAMIC_LIMITS
+
+config NYAANWORK_HIGH_OPENGL_CORE330_UNIFROM_BUFFER_BINDINGS
+	int "Unifrom buffer bindings limit"
+	range 1 120 # max from AMD Radeon RX 6600
+	default 36
+	depends on NYAANWORK_HIGH_OPENGL_CORE330
+	depends on !NYAANWORK_HIGH_OPENGL_CORE330_DYNAMIC_LIMITS
+
+config NYAANWORK_HIGH_OPENGL_CORE330_UNIFROM_BLOCK_SIZE
+	int "Unifrom block size limit (bytes)"
+	range 1 2147483647 # max from AMD Radeon RX 6600
+	default 16384
+	depends on NYAANWORK_HIGH_OPENGL_CORE330
+	depends on !NYAANWORK_HIGH_OPENGL_CORE330_DYNAMIC_LIMITS
