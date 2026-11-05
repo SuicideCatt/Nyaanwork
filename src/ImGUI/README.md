@@ -2,6 +2,7 @@
 
 ## Kconfig
 - ``CONFIG_NYAANWORK_IMGUI``
+- ``CONFIG_NYAANWORK_TESTS_IMGUI``
 
 ## CMake variables
 - ``NYAANWORK_IMGUI``
