@@ -1,4 +1,4 @@
-# Nyaanwork 1.0.0 TODO
+# Nyaanwork TODO
 
 ## Legend
 - `` `` - todo
