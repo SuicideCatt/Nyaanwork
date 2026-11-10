@@ -493,9 +493,9 @@ export namespace Nyaanwork::HighOpenGL::Core330
 
 			auto new_buffer = buffer->get();
 
-			auto itr = m_unifrom_buffers.find(slot);
-			if (itr == m_unifrom_buffers.end())
-				itr = m_unifrom_buffers.emplace(slot, 0).first;
+			auto itr = m_uniform_buffers.find(slot);
+			if (itr == m_uniform_buffers.end())
+				itr = m_uniform_buffers.emplace(slot, 0).first;
 
 			auto& old_buffer = itr->second;
 			if (old_buffer != new_buffer)
@@ -518,10 +518,10 @@ export namespace Nyaanwork::HighOpenGL::Core330
 		void bind_uniform_buffer(u8 slot)
 				noexcept(!Context::dynamic_limits_mode && !is_debug)
 		{
-			check_unifrom_slot(*m_context, slot);
+			check_uniform_slot(*m_context, slot);
 
-			auto itr = m_unifrom_buffers.find(slot);
-			if (itr != m_unifrom_buffers.end())
+			auto itr = m_uniform_buffers.find(slot);
+			if (itr != m_uniform_buffers.end())
 			{
 				auto& old_buffer = itr->second;
 				if (old_buffer)
@@ -534,7 +534,7 @@ export namespace Nyaanwork::HighOpenGL::Core330
 
 		void bind_uniform_buffers() noexcept
 		{
-			for (const auto& [slot, id] : m_unifrom_buffers)
+			for (const auto& [slot, id] : m_uniform_buffers)
 				if (id)
 					bind_uniform_buffer(slot);
 		}
@@ -753,7 +753,7 @@ export namespace Nyaanwork::HighOpenGL::Core330
 			} front, back;
 		} m_stencil;
 
-		std::unordered_map<u8, GLuint> m_unifrom_buffers;
+		std::unordered_map<u8, GLuint> m_uniform_buffers;
 
 		struct
 		{

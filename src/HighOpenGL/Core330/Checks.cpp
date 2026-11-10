@@ -35,7 +35,7 @@ namespace Nyaanwork::HighOpenGL::Core330
 		#endif
 	}
 
-	void check_unifrom_slot(Context& context, u8 slot,
+	void check_uniform_slot(Context& context, u8 slot,
 							std::source_location src =
 								std::source_location::current())
 			noexcept(!Context::dynamic_limits_mode && !is_debug)

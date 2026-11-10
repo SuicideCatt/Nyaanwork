@@ -117,7 +117,7 @@ export namespace Nyaanwork::HighOpenGL::Core330
 		void bind(u8 slot) noexcept(!Context::dynamic_limits_mode && !is_debug)
 		{
 			if constexpr (Context::dynamic_limits_mode || is_debug)
-				check_unifrom_slot(*m_context, slot);
+				check_uniform_slot(*m_context, slot);
 
 			m_gl->BindBufferBase(GL_UNIFORM_BUFFER, slot, get());
 		}

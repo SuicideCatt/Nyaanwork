@@ -532,7 +532,7 @@ export namespace Nyaanwork::HighOpenGL::Core330::Shader
 
 			for (auto& [name, val] : info.uniform_layout.buffers)
 			{
-				check_unifrom_slot(*context, val);
+				check_uniform_slot(*context, val);
 				auto loc = gl.GetUniformBlockIndex(get(), name.c_str());
 				gl.UniformBlockBinding(get(), loc, val);
 			}
