@@ -6,6 +6,7 @@ module;
 #include <Core/GLM.hpp>
 
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/matrix_decompose.hpp>
 
 export module Nyaanwork.Core.Math;
 
@@ -96,6 +97,7 @@ export namespace Nyaanwork::Math
 
 	using glm::ortho; using glm::perspective;
 	using glm::translate; using glm::rotate; using glm::scale;
+	using glm::decompose;
 
 	template<is_floating T, glm::qualifier q>
 	NYAAN_ND glm::mat<4, 4, T, q>
