@@ -1,5 +1,7 @@
 link_libraries(Nyaanwork)
 
+add_custom_target(Nyaanwork-Tests)
+
 function(nyaanwork_add_texec module name)
 	set(target "Nyaanwork-Tests-${module}-${name}")
 	string(REPLACE "/" "-" target "${target}")
@@ -7,6 +9,8 @@ function(nyaanwork_add_texec module name)
 	set_target_properties(${target} PROPERTIES
 		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/Nyaanwork/Tests/${module}"
 		OUTPUT_NAME "${name}")
+
+	add_dependencies(Nyaanwork-Tests ${target})
 endfunction()
 
 if (CONFIG_NYAANWORK_TESTS_CORE)
