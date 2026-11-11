@@ -11,6 +11,7 @@ function(nyaanwork_add_texec module name)
 		OUTPUT_NAME "${name}")
 
 	add_dependencies(Nyaanwork-Tests ${target})
+	Nyaanwork_run_target(${target} ${target})
 endfunction()
 
 if (CONFIG_NYAANWORK_TESTS_CORE)
