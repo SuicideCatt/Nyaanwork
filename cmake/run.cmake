@@ -25,9 +25,14 @@ function(nyaanwork_run_target name target)
 	if (CONFIG_NYAANWORK_CROSS_COMPILE_FROM_LINUX)
 		string(LENGTH "${executable}" executable_len)
 		math(EXPR executable_ext_begin "${executable_len}-4")
-		string(SUBSTRING "${executable}" ${executable_ext_begin} 4 executable_ext)
 
-		if (NOT "${executable_ext}" STREQUAL ".exe")
+		if (${executable_ext_begin} GREATER 0)
+			string(SUBSTRING "${executable}" ${executable_ext_begin} 4 executable_ext)
+
+			if (NOT "${executable_ext}" STREQUAL ".exe")
+				set(executable "${executable}.exe")
+			endif()
+		else()
 			set(executable "${executable}.exe")
 		endif()
 
